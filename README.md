@@ -5,7 +5,7 @@ Available under the commercial friendly
 
 
 ## Installation
-Add this dependency your pubspec.yaml file:
+Add this dependency your _pubspec.yaml_ file:
 
 ```
 dependencies:
@@ -48,7 +48,6 @@ Example for command line:
 ```dart
 import 'package:enough_mail_discovery/enough_mail_discovery.dart';
 
-// ignore: avoid_void_async
 void main() async {
   const email = 'someone@enough.de';
   final config = await Discover.discover(email, isLogEnabled: false);
@@ -87,7 +86,7 @@ Check out these related projects:
 
 Please file feature requests and bugs at the [issue tracker](https://github.com/Enough-Software/enough_mail_discovery/issues).
 
-## Contribute
+## Contribute / Develop
 
 Want to contribute? Please check out [contribute](https://github.com/Enough-Software/enough_mail_discovery/contribute).
 This is an open-source community project. Anyone, even beginners, can contribute.
@@ -100,10 +99,11 @@ This is how you contribute:
 * Push changes to your personal repository: `git push origin`
 * Go to [enough_mail_discovery](https://github.com/enough-software/enough_mail_discovery/)  and create a pull request.
 
+
 Thank you in advance!
 
 
-
+After changing model classes, re-run the JSON serialization by calling `flutter pub run build_runner build --delete-conflicting-outputs`.
 
 ## License
 `enough_mail_discovery` is licensed under the commercial friendly [Mozilla Public License 2.0](LICENSE).
