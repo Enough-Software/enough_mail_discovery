@@ -99,8 +99,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               if (config != null)
                 DiscoveredConfigViewer(config: config)
-              else if (_hasDiscovered)
+              else if (_hasDiscovered) ...[
+                const SizedBox(height: 16),
                 const Text('Unable to resolve settings...'),
+                const SizedBox(height: 8),
+                if (kIsWeb)
+                  const Text('Note that enough_mail_discovery can find more '
+                      'settings on non-web platforms')
+              ],
             ],
           ),
         ),
@@ -110,10 +116,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   bool _checkEmailAddressValidity() {
     final emailAddress = _editingController.text;
+    final atIndex = emailAddress.indexOf('@');
+    final lastDotIndex = emailAddress.lastIndexOf('.');
     return emailAddress.length > 5 &&
-        emailAddress.indexOf('@') > 1 &&
-        emailAddress.contains('.') &&
-        emailAddress.lastIndexOf('.') < emailAddress.length - 2;
+        atIndex > 1 &&
+        lastDotIndex > atIndex + 1 &&
+        lastDotIndex < emailAddress.length - 2;
   }
 
   Future<void> _discover() async {
@@ -125,6 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final emailAddress = _editingController.text;
     final result = await Discover.discover(
       emailAddress,
+      isLogEnabled: true,
       forceSslConnection: _forceSslConnection,
       isWeb: kIsWeb,
     );

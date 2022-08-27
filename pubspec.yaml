@@ -1,6 +1,6 @@
 name: enough_mail_discovery
 description: Discover email server and their settings based on an email. Discover IMAP, POP, SMTP and related settings.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/Enough-Software/enough_mail_discovery
 
 environment:
@@ -8,7 +8,6 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  basic_utils: ^5.1.2
   collection: ^1.16.0
   http: ^0.13.5
   json_annotation: ^4.6.0

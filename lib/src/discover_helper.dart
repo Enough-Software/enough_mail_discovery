@@ -1,12 +1,13 @@
 import 'dart:async';
 
-import 'package:basic_utils/basic_utils.dart' as basic;
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:http/http.dart' as http;
 import 'package:universal_io/io.dart';
 import 'package:xml/xml.dart' as xml;
-import 'package:http/http.dart' as http;
 
 import 'client_config.dart';
+import 'dns/dns_utils.dart';
+import 'dns/rrecord_type.dart';
 
 /// Low-level helper methods for mail scenarios
 class DiscoverHelper {
@@ -70,8 +71,7 @@ class DiscoverHelper {
 
   /// Looks up domain referenced by the domain's DNS MX record
   static Future<String?> discoverMxDomain(String domain) async {
-    final mxRecords =
-        await basic.DnsUtils.lookupRecord(domain, basic.RRecordType.MX);
+    final mxRecords = await DnsUtils.lookupRecord(domain, RRecordType.MX);
     if (mxRecords == null || mxRecords.isEmpty) {
       //print('unable to read MX records for [$domain].');
       return null;

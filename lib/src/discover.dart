@@ -1,6 +1,5 @@
-import 'discover_helper.dart';
-
 import 'client_config.dart';
+import 'discover_helper.dart';
 
 /// Helps discovering email connection settings based on an email address.
 ///
