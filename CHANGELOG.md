@@ -1,3 +1,9 @@
+## 1.0.3
+* Chore: update dependencies
+
+## 1.0.2
+* Chore: update dependencies
+
 ## 1.0.2
 * Fork DSN look-up from [basic_utils](https://github.com/Ephenodrom/Dart-Basic-Utils) into enough_mail_discovery to ensure full web-compatibility
 * Improve documentation
